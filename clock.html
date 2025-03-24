@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="" rel="stylesheet">
+    <style>
+        body{
+            background: linear-gradient(to right,rgb(157, 157, 247),rgb(105, 105, 223));
+            height:80vh;
+            
+        }
+        button{
+            height:50px;
+            width:200px;
+            background-color: rgb(102, 102, 233);
+            border-radius: 15px;
+            color:white;
+
+        }
+        .div{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            gap:10px;
+        }
+        .container{
+         height:40vh;
+           display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            border:3px solid white;
+            padding:3%;
+            font-size: 34px;
+            font-weight: bolder;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <span id="hr">00</span>
+            <span>:</span>
+            <span id="min">00</span>
+            <span>:</span>
+            <span id="sec">00</span>
+            <span id="pm">AM</span>
+           
+
+        </div>
+      
+    </div>
+    <div class="div">
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+        <button onclick="reset">Reset</button>
+       </div>
+    <script src="../js/clock.js"></script>
+</body>
+</html>
