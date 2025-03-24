@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    
+    <style>
+      body{
+        margin: 0%;
+        padding: 0%;
+        background-image: url('./js/bg.png');
+      }
+      section{
+       
+        height:99vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+      }   
+      .container{
+        width:60%;
+        height:60%;
+        border:1px solid white;border-radius: 15px;
+        backdrop-filter: blur(40px);
+        display: flex;
+        flex-direction: row;
+      }
+      .img{
+        border-right:1px solid white;
+        border-top-right-radius: 25%;
+        border-bottom-right-radius: 25%;
+        backdrop-filter: blur(150px);
+        
+        width:45%;
+
+      }
+      input{
+        height:30px;
+        width:400px;
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid white;
+      }
+      button{
+        font-size: larger;
+        height:40px;
+        width:200px;
+      }
+      input::placeholder {
+      color: rgb(248, 240, 240);
+      font-style: italic;
+      font-size: 16px;
+    }
+    input{
+      color:white;
+      font-size: larger;
+    }
+    #error1,#error2{
+      color:red;
+      display: block;
+    }
+    </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="" alt="logo">
+  </div>
+  <section>
+    
+     <div class="container">
+      
+        <div class="img">
+          
+
+          <p style="color:white;font-size: 30px;text-align: center;">Welcome back again!</p>
+          <img src="robot.png">
+        
+        </div>
+        <div class="login" style="padding: 5%;text-align: center;">
+         
+         <p style="font-size: 40px;color:white;text-align: center;">Sign in</p>
+        <form onsubmit="return validate()" action="login2.html" method="post">
+          <i class="fa fa-user" style="color:white;"></i>
+          <input type="text" id="name" placeholder="Enter your username or email"><br>
+          <span id="error1"></span><br><br>
+          
+          <i class="fa fa-lock" style="color:white;"></i>
+          <input type="password" id="pass" placeholder="Enter your password"><br>
+          <span id="error2"></span>
+          <br><br><br><br>
+          
+          <button id="but" type="submit" style="color:white;background-color: blueviolet;">Submit</button>
+
+
+        </form>
+
+        </div>
+     </div>
+  </section>
+    <script src="./js/login.js"></script>
+</body>
+</html>
