@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body{
+            background-color: purple;
+            margin:0;
+            display: flex;
+            justify-content: center;
+            padding-top: 5%;
+        }
+        .container{
+            background-color: rgba(255, 244, 181, 0.61);
+            width:30%;
+            height:55vh;
+            padding:1%;
+            border-radius: 15px;
+            cursor: pointer;
+           
+        }
+        .div{
+            display: grid;
+            grid-template-columns: repeat(4,3fr);
+            padding: 1%;
+            gap:10px;
+            padding: 3% 2%;
+        }
+        .div1{
+            background-color: white;
+            height:7vh;
+            text-align: right;
+            padding: 1%;
+            font-size: 30px;
+        }
+        button{
+            height:60px;
+            font-size: larger;
+        }
+        button:hover{
+            background-color: orangered;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    
+   <div class="container">
+   <div class="div1" id="one">0
+   </div>
+    <div class="div">
+        <button onclick="addDisplay('(')">(</button>
+        <button onclick="addDisplay(')')">)</button>
+        <button onclick="clearEvery()"> CSE</button>
+        <button onclick="clearLast()">C</button>
+        <button onclick="addDisplay('7')">7</button>
+        <button onclick="addDisplay('8')">8</button>
+        <button onclick="addDisplay('9')">9</button>
+        <button onclick="addDisplay('/')">\</button>
+        <button onclick="addDisplay('4')">4</button>
+        <button onclick="addDisplay('5')">5</button>
+        <button onclick="addDisplay('6')">6</button>
+        <button onclick="addDisplay('*')">*</button>
+        <button onclick="addDisplay('1')">1</button>
+        <button onclick="addDisplay('2')">2</button>
+        <button onclick="addDisplay('3')">3</button>
+        <button onclick="addDisplay('-')">-</button>
+        <button onclick="addDisplay('0')">0</button>
+        <button onclick="addDisplay('.')">.</button>
+        <button onclick="calculate('=')">=</button>
+        <button onclick="addDisplay('+')">+</button>
+    </div>
+   </div>
+    <script src="cal.js"></script>
+</body>
+</html>
