@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aliceblue;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height:98vh;
+        }
+        .div1{
+            margin-top: 15%;
+            border:5px solid white;
+            border-radius: 15px;
+            text-align: center;
+            padding: 5%;
+        }
+        input{
+            width:300px;
+            height:30px;
+        }
+        button{
+          width:80px;
+          height:30px;
+          background-color: rgb(103, 221, 221);
+          border-radius: 5px;
+        }
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+   /* Sky blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #87CEEB;  /* Sky blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Container for the clouds */
+.clouds-container {
+    position: absolute;
+    top: -400px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent clouds from blocking interactions */
+}
+
+/* Cloud styling */
+.cloud {
+    position: absolute;
+    top: 50%;
+    width: 200px;
+    height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 50px 30px 0px 20px #fff, -50px 20px 0px 20px #fff;
+    animation: moveClouds 30s linear infinite;
+}
+
+/* Position clouds at random starting points */
+.cloud:nth-child(1) {
+    left: -250px;
+    animation-duration: 25s;
+}
+
+.cloud:nth-child(2) {
+    left: -200px;
+    animation-duration: 30s;
+    animation-delay: 5s;
+}
+
+.cloud:nth-child(3) {
+    left: -300px;
+    animation-duration: 35s;
+    animation-delay: 3s;
+}
+
+/* Keyframes to move clouds across the screen */
+@keyframes moveClouds {
+    0% {
+        transform: translateX(0);  /* Start position */
+    }
+    100% {
+        transform: translateX(100vw);  /* End position: move the cloud off the screen */
+    }
+}
+
+}
+
+/* Container for the clouds */
+.clouds-container {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent clouds from blocking interactions */
+}
+
+/* Cloud styling */
+.cloud {
+    position: absolute;
+    top: 50%;
+    width: 200px;
+    height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 50px 30px 0px 20px #fff, -50px 20px 0px 20px #fff;
+    animation: moveClouds 30s linear infinite;
+}
+
+/* Position clouds at random starting points */
+.cloud:nth-child(1) {
+    left: -250px;
+    
+    animation-duration: 25s;
+}
+
+.cloud:nth-child(2) {
+    left: -200px;
+    animation-duration: 30s;
+    animation-delay: 5s;
+}
+
+.cloud:nth-child(3) {
+    left: -300px;
+    animation-duration: 35s;
+    animation-delay: 3s;
+}
+
+/* Keyframes to move clouds across the screen */
+@keyframes moveClouds {
+    0% {
+        transform: translateX(0);  /* Start position */
+    }
+    100% {
+        transform: translateX(100vw);  /* End position: move the cloud off the screen */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="clouds-container">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+    <div class="div1">
+        <h2>Climate</h2>
+        <input type="text" id="one" placeholder="Enter a city"><br><br>
+        <button id="btn">Click me</button>
+        <div class="div2">
+            <p id="city"></p>
+            <p id="name"></p>
+            <p id="climate"></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById("btn").addEventListener('click',()=>{
+            const city=document.getElementById("one").value
+            getweather(city)
+        })
+
+        function getweather(city){
+            const apiKey = '558dcf808a565e53fbb202e7aadf6741'; // Replace with a valid API key
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+           fetch(apiUrl)
+           .then(res=>res.json())
+           .then(data=>{
+            if(data.cod==200){
+                show(data)
+            }
+            else{
+                alert('city not found')
+            }
+           })
+           .catch(error => console.error('Error fetching the weather data:', error));
+        
+        }
+        function show(data) {
+    document.getElementById('name').textContent = `${data.name}, ${data.sys.country}`;
+    document.getElementById('city').textContent = `${Math.round(data.main.temp)}°C`;
+    document.getElementById('climate').textContent = data.weather[0].description;
+}
+    </script>
+</body>
+</html>
